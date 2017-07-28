@@ -20,7 +20,7 @@ angular.module('ventaApp.controllers',[]).controller('VentaListController',funct
             $scope.venta.producto = $scope.selectedProducto.id;
             $scope.venta.$save(function(){
                 $state.go('ventas');
-            }, function(response){console.log(response);alert(response.data.message)});
+            }, function(response){console.log(response)});
         }else{
             alert("debes seleccionar un producto");
         }

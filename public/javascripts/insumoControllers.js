@@ -6,7 +6,7 @@ angular.module('insumoApp.controllers',[]).controller('InsumoListController',fun
         if(popupService.showPopup('Really delete this?')){
             insumo.$delete(function(){
                 $window.location.href='/insumos/';
-            }, function(response){alert(response.data.message)});
+            });
         }
     }
 
