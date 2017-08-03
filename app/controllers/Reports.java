@@ -33,13 +33,15 @@ public class Reports extends Controller {
                 }
             }
         );
-        
+        Logger.info("promises before wait");
         Promise<List<Report>> promises
-                = Promise.waitAll(promiseOfKPIReport, promiseOfETAReport,promiseOfESSReport);
+              = Promise.waitAll(promiseOfKPIReport, promiseOfETAReport,promiseOfESSReport);
+        Logger.info("after wait");
         return async(
             promises.map(
                 new Function<List<Report>, Result>() {
                     public Result apply(List<Report> reports) {
+                        Logger.info("report");
                         return ok(report.render(reports));
                     }
                 }
