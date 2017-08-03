@@ -8,6 +8,8 @@ GET     /insumos/                   controllers.Application.insumos()
 GET     /productos/                 controllers.Application.productos()
 GET     /ventas/                    controllers.Application.ventas()
 
+GET     /reports/                   controllers.Reports.index()
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
