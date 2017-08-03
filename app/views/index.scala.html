@@ -1,7 +1,17 @@
 @(message: String)
 
 @main("Welcome to Play") {
-
-    @play20.welcome(message, style = "Java")
+    <script type="text/javascript" charset="utf-8">
+        $(function() {
+            var WS = window['MozWebSocket'] ? MozWebSocket : WebSocket;
+            var socket =
+                new WS("@routes.Application.hello.webSocketURL(request)");
+            var receiveEvent = function(event) {
+                console.log(event.data);
+                socket.send("hello server");
+            };
+            socket.onmessage = receiveEvent;
+        });
+    </script>
 
 }
